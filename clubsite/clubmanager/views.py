@@ -13,8 +13,10 @@ def member(request,member_id):
     member = Member.objects.get(id=member_id)
 
     #return HttpResponse('%s %s'%(member.first_name,member.last_name))
-    response = render(request,'clubmanager/member_detail.html',{})
-    embed()
+    response = render(request,'clubmanager/member_detail.html',{
+        'member':member
+        })
+    #embed()
     return response
 
 def member_list(request):

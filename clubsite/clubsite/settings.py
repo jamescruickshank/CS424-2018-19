@@ -25,7 +25,7 @@ SECRET_KEY = '85)bgcn#@@&7uu*1pg_1@=a8@9@*+60as+#fk(*7p&_z$2mr#@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jupyter.nuigalway.ie']
+ALLOWED_HOSTS = ['jupyter.nuigalway.ie','localhost']
 
 
 # Application definition
