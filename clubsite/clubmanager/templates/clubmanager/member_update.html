@@ -5,7 +5,11 @@
 
 <form method="post" action="">
 
-{{ form }}
+{{ form.as_p }}
+
+<input type="submit">
+
+{% csrf_token %}
 
 </form>
 

@@ -7,4 +7,6 @@
         <div id="member last_name"> Last Name: {{member.last_name}}</div>
         <div id="member email">email: {{member.email}}</div>
 </div>
+
+<p><a href = "{% url 'member_update' member_id=member.id %}">Update this informtion</a>
 {% endblock %}

@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+
+from django.urls import reverse
 
 from IPython import embed
 
@@ -28,8 +30,16 @@ def member_list(request):
 
 
 def member_update(request,member_id):
-    form = MemberForm()
+    member = Member.objects.get(id=member_id)
+    if request.method=="POST":
+        form = MemberForm(request.POST, instance=member) # populates the form fields with POST data
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('member_profile',kwargs={'member_id':member_id}))
+        else:
+            return HttpResponseRedirect('/')
 
+    form = MemberForm()
     return render(request,'clubmanager/member_update.html',{
             'form':form
-            })
+        })
