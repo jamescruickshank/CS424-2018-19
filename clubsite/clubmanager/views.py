@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 from IPython import embed
 
+from clubmanager.forms import MemberForm
 
 from clubmanager.models import Member
 
@@ -24,3 +25,11 @@ def member_list(request):
             'members':members
     })
     return response
+
+
+def member_update(request,member_id):
+    form = MemberForm()
+
+    return render(request,'clubmanager/member_update.html',{
+            'form':form
+            })
