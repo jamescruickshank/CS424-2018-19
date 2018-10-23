@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for m in members %}
+    <p>
+    <a href="{% url 'member_profile' member_id=m.id %}">{{ m.first_name }} {{m.last_name}}</a>
+
+{% endfor %}
+
+{% endblock %}
