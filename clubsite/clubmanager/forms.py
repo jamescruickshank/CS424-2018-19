@@ -6,5 +6,5 @@ from clubmanager.models import Member
 class MemberForm(forms.ModelForm):
     class Meta:
         model=Member
-        exclude=['date_of_birth']
+        exclude=[]
         #fields = ['first_name']

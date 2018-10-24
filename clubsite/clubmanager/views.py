@@ -39,7 +39,7 @@ def member_update(request,member_id):
         else:
             return HttpResponseRedirect('/')
 
-    form = MemberForm()
+    form = MemberForm(instance=member)
     return render(request,'clubmanager/member_update.html',{
             'form':form
         })
