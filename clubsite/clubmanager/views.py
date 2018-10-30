@@ -3,6 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 from django.urls import reverse
 
+from django.contrib.auth.decorators import login_required
+
 from IPython import embed
 
 from clubmanager.forms import MemberForm
@@ -29,6 +31,7 @@ def member_list(request):
     return response
 
 
+@login_required
 def member_update(request,member_id):
     member = Member.objects.get(id=member_id)
     if request.method=="POST":
