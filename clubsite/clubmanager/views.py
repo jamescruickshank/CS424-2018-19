@@ -31,8 +31,9 @@ def member_list(request):
     return response
 
 
-@login_required
+#@login_required
 def member_update(request,member_id):
+    embed()
     member = Member.objects.get(id=member_id)
     if request.method=="POST":
         form = MemberForm(request.POST, instance=member) # populates the form fields with POST data
