@@ -25,7 +25,7 @@ SECRET_KEY = '85)bgcn#@@&7uu*1pg_1@=a8@9@*+60as+#fk(*7p&_z$2mr#@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jupyter.nuigalway.ie','localhost']
+ALLOWED_HOSTS = ['jupyter.nuigalway.ie','localhost','testserver']
 
 
 # Application definition
@@ -119,6 +119,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,"static"),
+]
+
 
 
 #LOGIN_URL = '/accounts/login'
