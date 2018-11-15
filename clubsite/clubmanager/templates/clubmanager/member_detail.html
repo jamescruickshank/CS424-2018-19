@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3>Member Information</h3>
+
+{% load static %}
+
+<script src="{% static 'cm.js' %}"></script>
+
+<h3>Member Information</h3
         <div id="member detail">
         <div id="member first_name"> First name: {{ member.first_name}}</div>
-        <div id="member last_name"> Last Name: {{member.last_name}}</div>
+        <div id="member last_name"> Last Name: <span id="last_name_value">{{member.last_name}}</span></div>
         <div id="member email">email: {{member.email}}</div>
 </div>
+
+<p>
+<button onclick="loadinfo({{member.id}})">Update last name asynchronously</button>
 
 <p><a href = "{% url 'member_update' member_id=member.id %}">Update this informtion</a>
 {% endblock %}

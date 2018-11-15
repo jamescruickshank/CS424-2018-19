@@ -31,7 +31,6 @@ def member_list(request):
     return response
 
 
-@login_required
 def member_update(request,member_id):
     member = Member.objects.get(id=member_id)
     if request.method=="POST":
@@ -46,3 +45,9 @@ def member_update(request,member_id):
     return render(request,'clubmanager/member_update.html',{
             'form':form
         })
+
+
+def ajax_last_name_update(request,member_id):
+    m = Member.objects.get(id=member_id)
+    return HttpResponse(m.last_name)
+
