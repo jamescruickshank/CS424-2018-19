@@ -9,7 +9,12 @@ from IPython import embed
 
 from clubmanager.forms import MemberForm
 
-from clubmanager.models import Member
+from clubmanager.models import Member, CommitteeRole
+
+from clubmanager.serializers import MemberSerializer, CommitteeRoleSerializer
+
+
+from rest_framework import viewsets
 
 # Create your views here.
 
@@ -51,3 +56,14 @@ def ajax_last_name_update(request,member_id):
     m = Member.objects.get(id=member_id)
     return HttpResponse(m.last_name)
 
+
+# some class based viewsets for the REST api
+
+class MemberViewSet(viewsets.ModelViewSet):
+    queryset = Member.objects.all()
+    serializer_class = MemberSerializer
+
+
+class CommitteeRoleViewSet(viewsets.ModelViewSet):
+    queryset = CommitteeRole.objects.all()
+    serializer_class = CommitteeRoleSerializer
