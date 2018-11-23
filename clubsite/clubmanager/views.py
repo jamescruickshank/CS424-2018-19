@@ -1,16 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-
 from django.urls import reverse
-
 from django.contrib.auth.decorators import login_required
-
 from IPython import embed
-
 from clubmanager.forms import MemberForm
-
 from clubmanager.models import Member, CommitteeRole
-
 from clubmanager.serializers import MemberSerializer, CommitteeRoleSerializer
 
 
